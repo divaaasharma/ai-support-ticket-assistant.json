@@ -1,0 +1,171 @@
+{
+  "name": "My workflow 3",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -224,
+        -224
+      ],
+      "id": "87519b84-0d52-410d-bef5-8570115fa1e1",
+      "name": "When chat message received",
+      "webhookId": "0e0978df-d3cc-49d7-bde6-3f1be3136b7c"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "You are an AI support ticket assistant.\n\nUse the Google Sheets tool whenever the user asks about support tickets, issues, employees, priorities, departments, or status.\n\nAlways use the spreadsheet to answer. If the information is not available, say \"No matching records found.\""
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        64,
+        -224
+      ],
+      "id": "afd53cf2-341d-4d31-957e-48e8600177af",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": "llama-3.3-70b-versatile",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        -48,
+        -48
+      ],
+      "id": "25b2e1b9-433e-4ff1-abe6-40979baea997",
+      "name": "Groq Chat Model",
+      "credentials": {
+        "groqApi": {
+          "id": "OaFSf4hSOhB9RsMg",
+          "name": "Groq account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.4,
+      "position": [
+        96,
+        -32
+      ],
+      "id": "14eecf97-3c1a-4d57-acb1-2aec686e9b47",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Get row(s) in sheet in Google SheetsYou are an AI Support Ticket Assistant.\n\nYou have access to a Google Sheets tool that contains support tickets.\n\nWhen the user asks about a ticket, first use the Google Sheets tool.\n\nIf the user mentions a ticket ID (for example T1001), pass only the ticket ID to the tool.\n\nAfter receiving the tool result, answer using only the returned data.\n\nIf no matching ticket exists, reply:\n\"Ticket not found.\"\n\nDo not invent information.\nDo not call the tool more than once for the same question.\n",
+        "documentId": {
+          "__rl": true,
+          "value": "157ZXBCO9O-b1Zw6kP4FihZJPDME4Xd46qVSWlu6hYQc",
+          "mode": "list",
+          "cachedResultName": "Untitled spreadsheet",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/157ZXBCO9O-b1Zw6kP4FihZJPDME4Xd46qVSWlu6hYQc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1038113131,
+          "mode": "list",
+          "cachedResultName": "AI_Support_Tickets",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/157ZXBCO9O-b1Zw6kP4FihZJPDME4Xd46qVSWlu6hYQc/edit#gid=1038113131"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Ticket ID",
+              "lookupValue": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('values0_Value', `Extract the Ticket ID from the user's question. Examples: T1001, T1002, T1003.\n`, 'string') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        224,
+        -16
+      ],
+      "id": "c42be86e-cf1b-4c05-bc17-c4ca4778592f",
+      "name": "Get row(s) in sheet in Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "lmxWvctomdDrg5Pp",
+          "name": "Google Sheets account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet in Google Sheets": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "35f676b4-7e0b-41f2-b822-57e0121c6b76",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "4c51741dc4a4b1146f95a22e073bf3f5d99d6bc4c9b34f684e4201ae2077476b"
+  },
+  "nodeGroups": [],
+  "id": "7MBRhwdaoNktEqQm",
+  "tags": []
+}
