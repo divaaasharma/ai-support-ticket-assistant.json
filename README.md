@@ -14,7 +14,7 @@
 
 ---
 
-# 🤖 AI Support Ticket Assistant
+# AI Support Ticket Assistant
 
 An AI-powered Support Ticket Assistant built using **n8n**, **Groq LLM**, and **Google Sheets**.
 
@@ -22,36 +22,36 @@ The assistant understands natural language, automatically extracts ticket IDs, s
 
 ---
 
-# 🚀 Features
+# Features
 
-- 🤖 AI-powered Support Ticket Assistant
-- 🔍 Search tickets using natural language
-- 🎯 Automatic Ticket ID extraction
-- 📄 Google Sheets integration
-- ⚡ Groq LLM integration
-- 🧠 AI Agent with Tool Calling
-- 💬 Conversational responses
-- 🔄 Real-time ticket lookup
+- AI-powered Support Ticket Assistant
+- Search tickets using natural language
+- Automatic Ticket ID extraction
+- Google Sheets integration
+- Groq LLM integration
+- AI Agent with Tool Calling
+- Conversational responses
+- Real-time ticket lookup
 
 ---
 
-# 🏗 Workflow Architecture
+# Workflow Architecture
 
 ```text
                     User Query
                          │
                          ▼
-          💬 Chat Trigger (n8n)
+           Chat Trigger (n8n)
                          │
                          ▼
-                 🤖 AI Agent
+                  AI Agent
              (Groq LLM + Memory)
                          │
                          ▼
            Extract Ticket ID Automatically
                          │
                          ▼
-          📄 Google Sheets Tool
+           Google Sheets Tool
                          │
                          ▼
          Search Ticket Information
@@ -65,7 +65,7 @@ The assistant understands natural language, automatically extracts ticket IDs, s
 
 ---
 
-# 🛠 Tech Stack
+#  Tech Stack
 
 | Technology | Purpose |
 |------------|---------|
@@ -77,7 +77,7 @@ The assistant understands natural language, automatically extracts ticket IDs, s
 
 ---
 
-# 📊 Dataset
+#  Dataset
 
 The Google Sheet contains realistic support ticket information including:
 
@@ -95,7 +95,7 @@ The Google Sheet contains realistic support ticket information including:
 
 ---
 
-# 💬 Example Queries
+#  Example Queries
 
 ```
 Show ticket T1001
@@ -107,56 +107,8 @@ Who is assigned to ticket T1008?
 Show details of ticket T1010.
 
 What is the priority of ticket T1003?
-```
 
----
-
-# 📸 Project Screenshots
-
-Create a folder named:
-
-```
-screenshots
-```
-
-Add these screenshots:
-
-```
-screenshots/
-│
-├── workflow.png
-├── google-sheet.png
-├── ai-chat.png
-└── ai-agent.png
-```
-
-Then display them:
-
-## Workflow
-
-![Workflow](screenshots/workflow.png)
-
----
-
-## AI Chat
-
-![AI Chat](screenshots/ai-chat.png)
-
----
-
-## Google Sheets
-
-![Google Sheet](screenshots/google-sheet.png)
-
----
-
-## AI Agent
-
-![AI Agent](screenshots/ai-agent.png)
-
----
-
-# 📂 Project Structure
+#  Project Structure
 
 ```
 AI-Support-Ticket-Assistant
@@ -172,7 +124,7 @@ AI-Support-Ticket-Assistant
 
 ---
 
-# ⚙️ Installation
+#  Installation
 
 ### 1. Clone the repository
 
@@ -199,7 +151,7 @@ Show ticket T1001
 
 ---
 
-# 🎯 Use Cases
+#  Use Cases
 
 - Customer Support
 - IT Helpdesk
@@ -209,7 +161,7 @@ Show ticket T1001
 
 ---
 
-# ⭐ Key Highlights
+#  Key Highlights
 
 ✅ Built using n8n AI Agent
 
@@ -223,11 +175,11 @@ Show ticket T1001
 
 ✅ Modular Workflow Design
 
-✅ Easy to Extend
+Easy to Extend
 
 ---
 
-# 🔮 Future Improvements
+#  Future Improvements
 
 - Search by Customer Name
 - Search by Department
@@ -242,7 +194,7 @@ Show ticket T1001
 
 ---
 
-# 👩‍💻 Author
+#  Author
 
 **Divyanshi Sharma**
 
